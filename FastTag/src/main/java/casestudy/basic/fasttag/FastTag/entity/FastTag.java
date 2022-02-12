@@ -1,3 +1,4 @@
+//Date: 28-01-2022
 package casestudy.basic.fasttag.FastTag.entity;
 
 import java.util.ArrayList;
@@ -5,8 +6,13 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+//util,io,sql,swing,lang
+//17jdk>> 5000+ inbuilt classes: String,List,Integer,Double
+
 import javax.persistence.Id;
 
+
+//Created a entity class FastTag
 @Entity
 public class FastTag 
 {
@@ -19,7 +25,8 @@ public class FastTag
 	
 	@ElementCollection
 	private List<String> transactions=new ArrayList<String>();
-
+	
+	//Adding getter and setter methods  right click >> source>> generate getter and setter
 	public String getVehicleNumber() {
 		return vehicleNumber;
 	}

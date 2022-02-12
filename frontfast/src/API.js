@@ -10,14 +10,11 @@ const traverse=async()=>{
     return tmp
 }
 
+//At a time we can edit only one row of information by clicking on update icon
 const oneAtTime=async(param)=>{
     const tmp = await axios.get(`${url}/${param}`)
     return tmp
 }
-{/*const terminate=async(param)=>{
-    const t = await axios.delete(`${url}/remove/${param}`)
-    return t
-}*/}
 
 const change=async(object)=>{
     const t = await axios.put(`${url}/fast`,object)

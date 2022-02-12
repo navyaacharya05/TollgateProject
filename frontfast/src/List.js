@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";//useState>>lets you add react state to functional components
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Read from "./Read";
 import EditIcon from '@mui/icons-material/Edit';
 import Edit from "./Update";
 import Button from '@mui/material/Button';
-//import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { oneAtTime,traverse,terminate} from "./API";
+import { oneAtTime,traverse} from "./API";
 
-
-
+//getting list which is inserted in the mysql database 
 const List=()=>{
-    const [rview,setRview]=useState(false)
-    const [eview,setEview]=useState(false)
-    const [company,setCompany]=useState("")
+    const [rview,setRview]=useState(false)//used for read
+    const [eview,setEview]=useState(false)//used for edit
+    const [company,setCompany]=useState("")//declared a new state variable called company
 
     const [all,setAll]=useState([])
 
+    //allows us to perform side effects in the function components
     useEffect(()=>{
         iterate()
     },[])
@@ -36,19 +35,12 @@ const List=()=>{
         }
     )
 
-   
-
-    const reading=async(one)=>{
+   const reading=async(one)=>{
         const hey=await oneAtTime(one)
         setObj(hey.data)
     } 
     
-    {/*const abort=async(par)=>{
-        const yet=await terminate(par)
-        alert(yet.data)
-        window.location.assign("http://localhost:3000")
-    }*/}
-
+   
 
     return(
         <>

@@ -5,7 +5,7 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 import CancelIcon from '@mui/icons-material/Cancel';
 import  {oneAtTime,change } from "./API";
 
-
+//By using property 'kavya' we fetching all information to update
 const Update=(kavya)=>{
     const [data,setDate]=useState(
         {
@@ -21,7 +21,8 @@ const Update=(kavya)=>{
     useEffect(()=>{
         finding()
     },[])
-
+    
+    
     const finding=async()=>{
         const obj=await oneAtTime(kavya.id)
         const tmp=obj.data
@@ -41,8 +42,8 @@ const Update=(kavya)=>{
     }
 
     const modify=async()=>{
-        data.transactions=data.transactions.split(',')
-        const tmp=await change(data)
+        data.transactions=data.transactions.split(',')//Converting List of array to String separated by comma
+        const tmp=await change(data)//created a temporary object to store a modified data
         alert(tmp.data)
         window.location.assign("http://localhost:3000")
     }

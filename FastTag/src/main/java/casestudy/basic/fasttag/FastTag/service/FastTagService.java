@@ -8,11 +8,20 @@ import org.springframework.stereotype.Service;
 import casestudy.basic.fasttag.FastTag.entity.FastTag;
 import casestudy.basic.fasttag.FastTag.repository.FastTagRepository;
 
+/*
+ * save(object)	// new/ update>> if primary key/id object already there it will update, else add the new entity 
+ * findAll()	// list<entity>
+ * findById(id)>> json/xml / getById(id)>> xml>> dataformat.xml	// entity/ corporate
+ * deleteById(id)/delete(object)	>> void
+ */
+
+
 @Service
 public class FastTagService 
 {
 	@Autowired
-	FastTagRepository fastrepo;
+	FastTagRepository fastrepo;// get the instance/memory of the component
+	
 	
 	public FastTag interact(FastTag object)
 	{
@@ -24,16 +33,10 @@ public class FastTagService
 		return fastrepo.findAll();
 	}
 	
+	//Reading information by using id
 	public FastTag readOne(String id)
 	{
 		return fastrepo.findById(id).orElse(new FastTag());
 	}
-	
-	/*public String eraseOne(String id)
-	{
-		String name=readOne(id).getVehicleNumber()+" "+readOne(id).getBalance()+" has deleted\n";
-		fastrepo.deleteById(id);
-		return name;
-	}*/
 	
 }
